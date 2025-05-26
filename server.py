@@ -273,4 +273,9 @@ async def convert_audio():
         return jsonify(error=f"Audio conversion failed: {exception}"), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=4000)
+    import hypercorn.asyncio
+    import hypercorn.config
+
+    config = hypercorn.config.Config()
+    config.bind = ["0.0.0.0:4000"]
+    asyncio.run(hypercorn.asyncio.serve(app, config))
