@@ -1,0 +1,8 @@
+quart
+quart-cors
+pypandoc
+Pillow
+pdf2docx
+ffmpeg-python
+cryptography
+aiofiles
