@@ -12,10 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const setAllFormatText = document.querySelector(".set-all-format-text");
   const previewContainer = document.querySelector(".file-preview-container");
 
-  const IMAGE_FORMATS = ["png", "jpeg", "webp", "gif"];
-  const VIDEO_FORMATS = ["mp4", "webm", "avi"];
-  const AUDIO_FORMATS = ["mp3", "wav", "ogg"];
-  const DOC_FORMATS = ["pdf", "docx", "html", "txt"];
+  const IMAGE_FORMATS = [
+    "png", "jpeg", "jpg", "webp", "gif", "bmp", "tiff", "tif", "ico", "icns",
+    "dds", "eps", "pcx", "ppm", "sgi", "tga", "xbm", "j2k", "j2p", "jpx", "apng"
+  ];
+
+  const VIDEO_FORMATS = [
+    "mp4", "webm", "avi", "mkv", "mov", "flv", "wmv", "mpeg", "mpg", "3gp",
+    "3g2", "m4v", "ts", "m2ts", "asf", "ogv", "rm", "vob"
+  ];
+
+  const AUDIO_FORMATS = [
+    "mp3", "wav", "ogg", "aac", "flac", "alac", "wma", "m4a", "opus", "amr",
+    "aiff", "ac3"
+  ];
+
+  const DOC_FORMATS = [
+    "pdf", "docx", "html", "htm", "txt", "md", "markdown", "rst", "tex", "epub",
+    "odt", "rtf", "org", "asciidoc", "fb2", "xml", "json", "csv"
+  ];
 
   let uploadedFiles = [];
 
