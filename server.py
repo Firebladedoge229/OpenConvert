@@ -277,5 +277,5 @@ if __name__ == "__main__":
     import hypercorn.config
 
     config = hypercorn.config.Config()
-    config.bind = ["0.0.0.0:4000"]
+    config.bind = ["0.0.0.0:10000"]
     asyncio.run(hypercorn.asyncio.serve(app, config))
