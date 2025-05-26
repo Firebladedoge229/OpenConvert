@@ -373,6 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cardElement.style.backgroundColor = "rgb(0 255 126)"; 
       console.log(`Converted "${file.name}" to "${toFormat}". Click Download to save.`);
     } catch (err) {
+      cardElement.style.backgroundColor = "rgb(200 0 0)"; 
       console.error("Conversion failed:", err);
       console.log(`Failed to convert "${file.name}": ${err.message}`);
     } finally {
