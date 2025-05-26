@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>OpenConvert</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+    <link rel="icon" href="../favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video.">
+    <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter">
+    <meta name="author" content="OpenConvert Team">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link rel="prefetch" href="/home" as="document">
+    <link rel="prefetch" href="/convert" as="document">
+    <link rel="prefetch" href="/about" as="document">
+</head>
+<body>
+    <div class="top-navigation">
+        <a href="/">Home</a>
+        <a href="/convert">Convert</a>
+        <a class="active" href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
+
+    <div class="settings-container">
+        <h1>Settings</h1>
+
+        <div class="setting-item">
+            <label for="theme-dropdown">Theme:</label>
+            <select id="theme-dropdown">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="footer">
+        <p>&copy; 2025 OpenConvert. All rights reserved.</p>
+        <p>Made with ❤️ by the <a href="../about/">OpenConvert Team</a></p>
+    </div>
+</body>
+</html>

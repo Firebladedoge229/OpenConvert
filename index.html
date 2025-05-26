@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>OpenConvert</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video.">
+    <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter">
+    <meta name="author" content="OpenConvert Team">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="prefetch" href="/convert" as="document">
+    <link rel="prefetch" href="/settings" as="document">
+    <link rel="prefetch" href="/about" as="document">
+</head>
+<body>
+    <div class="top-navigation">
+        <a class="active" href="/">Home</a>
+        <a href="/convert">Convert</a>
+        <a href="/settings">Settings</a>
+        <a href="/about">About</a>
+    </div>
+
+    <div class="container">
+        <div class="image-container-left">
+            <img src="./images/logo.png" alt="OpenConvert Logo" class="container-logo"/>
+        </div>
+        <div class="text-container-right">
+            <h1>The file converter you've been waiting for.</h1>
+            <p>Fast, simple, and hassle-free — OpenConvert makes switching formats easier than ever. Whether you're working with documents, images, audio, or video, just upload your file and let us handle the rest. No ads, no confusion, just pure converting bliss.</p>
+            <div class="button-container">
+                <a href="/convert" class="button">Start Converting</a>
+                <a href="/about" class="button">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="supported-formats">
+        <h2>Supported Formats:</h2>
+        <div class="formats-grid">
+            <div class="format-box">
+                <div class="format-icon-container">
+                    <img src="./images/icons/image.png" alt="Image Formats" class="format-icon">
+                    <h3 class="format-title">Images</h3>
+                </div>
+                <p>JPEG, PNG, GIF, BMP, TIFF, SVG, WebP</p>
+            </div>
+            <div class="format-box">
+                <div class="format-icon-container">
+                    <img src="./images/icons/document.png" alt="Document Formats" class="format-icon">
+                    <h3 class="format-title">Documents</h3>
+                </div>
+                <p>PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, RTF</p>
+            </div>
+            <div class="format-box">
+                <div class="format-icon-container">
+                    <img src="./images/icons/audio.png" alt="Audio Formats" class="format-icon">
+                    <h3 class="format-title">Audio</h3>
+                </div>
+                <p>MP3, WAV, AAC, FLAC, OGG, M4A</p>
+            </div>
+            <div class="format-box">
+                <div class="format-icon-container">
+                    <img src="./images/icons/video.png" alt="Video Formats" class="format-icon">
+                    <h3 class="format-title">Video</h3>
+                </div>
+                <p>MP4, AVI, MOV, WMV, MKV, FLV, WEBM</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="footer">
+        <p>&copy; 2025 OpenConvert. All rights reserved.</p>
+        <p>Made with ❤️ by the <a href="../about/" style="text-decoration: none;">OpenConvert Team</a></p>
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            return parts.length === 2 ? parts.pop().split(';').shift() : null;
+        }
+
+        if (!getCookie('theme')) {
+            setCookie('theme', "light", 999999); 
+        }
+
+        function applySavedTheme() {
+            const savedTheme = getCookie('theme') || 'light'; 
+            document.body.classList.add(`${savedTheme}-theme`);
+            const dropdown = document.getElementById('theme-dropdown');
+            if (dropdown) dropdown.value = savedTheme;
+        }
+
+        applySavedTheme();
+    </script>
+</body>
+</html>

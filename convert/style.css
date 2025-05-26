@@ -1,0 +1,364 @@
+a, p, h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.light-theme a, .light-theme p, .light-theme h1, .light-theme h2, .light-theme h3, .light-theme h4, .light-theme h5, .light-theme h6 {
+    color: #000000;
+}
+
+.dark-theme a, .dark-theme p, .dark-theme h1, .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme h6 {
+    color: #ffffff;
+}
+
+.light-theme .active {
+    color: #FFFFFF !important;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px 60px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+body.light-theme {
+    background-color: #EBEBEB;
+}
+
+body.dark-theme {
+    background-color: #141414;
+}
+
+.top-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    animation: slideDown 0.7s ease forwards;
+    opacity: 0;
+}
+
+.light-theme .top-navigation {
+    background-color: #DDD;
+}
+
+.dark-theme .top-navigation {
+    background-color: #222;
+}
+
+.top-navigation a.active {
+    background: linear-gradient(-45deg, #07ABE1, #37DF88, #37DF88, #07ABE1);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    border-radius: 4px;
+    transition: background-position 3s ease, transform 0.3s;
+}
+
+.light-theme .top-navigation a.active {
+    color: #000000;
+}
+
+.dark-theme .top-navigation a.active {
+    color: #FFFFFF;
+}
+
+.top-navigation a.active:hover {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+}
+
+.top-navigation a {
+    font-weight: 500;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.light-theme .top-navigation a {
+    color: #0D0D0D;
+}
+
+.dark-theme .top-navigation a {
+    color: #f2f2f2;
+}
+
+.top-navigation a:hover {
+    transform: scale(1.1);
+}
+
+.light-theme .top-navigation a:hover {
+    background-color: #D7D7D7;
+}
+
+.dark-theme .top-navigation a:hover {
+    background-color: #282828;
+}
+
+.break {
+    padding-bottom: 150px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+.light-theme .footer {
+    background-color: #EEE;
+    color: #000000;
+}
+
+.dark-theme .footer {
+    background-color: #111;
+    color: #FFFFFF;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    animation: fadeInUp 0.9s ease forwards;
+    opacity: 0;
+}
+
+.light-theme .toolbar {
+    background-color: #DDD;
+    color: #000000;
+}
+
+.dark-theme .toolbar {
+    background-color: #222;
+    color: #FFFFFF;
+}
+
+.toolbar a,
+.toolbar button,
+.upload-button,
+.toolbar-button {
+    color: #FFFFFF;
+    background: linear-gradient(-45deg, #07ABE1, #37DF88, #37DF88, #07ABE1);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 0 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-position 3s ease, transform 0.3s;
+    display: inline-block;
+}
+
+.toolbar a:hover,
+.toolbar button:hover,
+.upload-button:hover,
+.toolbar-button:hover {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+}
+
+.toolbar select,
+.toolbar p {
+    margin: 0 4px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.light-theme .toolbar select,
+.light-theme .toolbar p {
+    color: #000000;
+}
+
+.dark-theme .toolbar select,
+.dark-theme .toolbar p {
+    color: #FFFFFF;
+}
+
+.convert-all, .download-zip, .clear, .upload-icon, .convert-text {
+    color: #FFFFFF !important;
+}
+
+.toolbar p {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.upload-button {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.upload-icon {
+    margin-top: 20px;
+    scale: 1.7;
+}
+
+.file-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+.file-card {
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0.5rem;
+    background: #222;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.light-theme .file-card {
+    background: #DDD;
+}
+
+.dark-theme .file-card {
+    background: #222;
+}
+
+.file-card img,
+.file-card .file-icon {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.file-card .top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.file-card .bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.file-card button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.toolbar-select {
+    margin: 4px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 200;
+}
+
+.light-theme .toolbar-select {
+    background: #DDD;
+    color: #000;
+    border: 1px solid #BBB;
+}
+
+.dark-theme .toolbar-select {
+    background: #222;
+    color: #FFF;
+    border: 1px solid #444;
+}
+
+.toolbar-button {
+    color: #FFFFFF;
+    background: linear-gradient(-45deg, #07ABE1, #37DF88, #37DF88, #07ABE1);
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 16px;
+    margin: 0 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-position 3s ease, transform 0.3s;
+    display: inline-block;
+}
+
+.toolbar-button:hover {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+}
+
+.file-card .toolbar-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-top: 0.5rem;
+}
+
+.remove-button {
+    position: relative;
+    z-index: 200;
+}
+
+.remove-button:hover {
+    color: #FF5555;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>OpenConvert</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video.">
+    <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter">
+    <meta name="author" content="OpenConvert Team">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="prefetch" href="/home" as="document">
+    <link rel="prefetch" href="/convert" as="document">
+    <link rel="prefetch" href="/settings" as="document">
+</head>
+<body>
+    <div class="top-navigation">
+        <a href="/">Home</a>
+        <a href="/convert">Convert</a>
+        <a href="/settings">Settings</a>
+        <a class="active" href="/about">About</a>
+    </div>
+
+    <div class="container">
+        <div class="image-container-left">
+            <img src="../images/logo.png" alt="OpenConvert Logo" class="container-logo"/>
+        </div>
+        <div class="text-container-right">
+            <h1>About OpenConvert</h1>
+            <p>OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video. Our mission is to provide a fast, simple, and hassle-free experience for users looking to convert files without the clutter of ads or complex interfaces.</p>
+            <p>Whether you need to convert a document to PDF, an image to JPEG, or an audio file to MP3, OpenConvert has you covered. Just upload your file and let us handle the rest.</p>
+        </div>
+    </div>
+
+    <div class="developers">
+        <h2>Developer Information</h2>
+        <div class="developer-list">
+            <div class="developer-card">
+                <img src="https://avatars.githubusercontent.com/u/72758695" alt="Fireblade" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://github.com/Firebladedoge229">Fireblade</a></h3>
+                    <p>Lead Developer<br>Maintainer<br>UI Designer</p>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <img src="../images/logo-rounded.png" alt="OpenConvert" class="developer-logo-special">
+                <div class="developer-info">
+                    <h3><a href="https://github.com/Firebladedoge229/OpenConvert">OpenConvert</a></h3>
+                    <a href="https://github.com/Firebladedoge229/OpenConvert">View Repository</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="libraries">
+        <h2>Library Information</h2>
+        <div class="developer-list">
+            <div class="developer-card">
+                <img src="./images/quart.png" alt="Quart" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://pypi.org/project/Quart/">Quart</a></h3>
+                    <p>Server Framework</p>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <img src="./images/pandoc.png" alt="PyPandoc" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://pypi.org/project/PyPandoc/">PyPandoc</a></h3>
+                    <p>Document Conversion</p>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <img src="./images/pdf2docx.png" alt="PDF2DocX" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://pypi.org/project/pdf2docx/">PDF2DocX</a></h3>
+                    <p>Document Conversion</p>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <img src="./images/pillow.png" alt="Pillow" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://pypi.org/project/Pillow/">Pillow</a></h3>
+                    <p>Image Processing</p>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <img src="./images/ffmpeg.png" alt="FFmpeg" class="developer-logo">
+                <div class="developer-info">
+                    <h3><a href="https://pypi.org/project/ffmpeg-python/">FFmpeg</a></h3>
+                    <p>Video Processing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="footer">
+        <p>&copy; 2025 OpenConvert. All rights reserved.</p>
+        <p>Made with ❤️ by the <a href="../about/" style="text-decoration: none;">OpenConvert Team</a></p>
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            return parts.length === 2 ? parts.pop().split(";").shift() : null;
+        }
+
+        if (!getCookie("theme")) {
+            setCookie("theme", "light", 999999); 
+        }
+
+        function applySavedTheme() {
+            const savedTheme = getCookie("theme") || "light"; 
+            document.body.classList.add(`${savedTheme}-theme`);
+            const dropdown = document.getElementById("theme-dropdown");
+            if (dropdown) dropdown.value = savedTheme;
+        }
+
+        applySavedTheme();
+    </script>
+</body>
+</html>
