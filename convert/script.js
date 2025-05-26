@@ -1,4 +1,4 @@
-const server = "http://openconvert-server.fireblade.dev"; 
+const server = "https://openconvert-server.fireblade.dev"; 
 
 document.addEventListener("DOMContentLoaded", () => {
 
