@@ -117,6 +117,11 @@
             return parts.length === 2 ? parts.pop().split(";").shift() : null;
         }
 
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 86400000).toUTCString();
+            document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+        }
+
         if (!getCookie("theme")) {
             setCookie("theme", "light", 999999); 
         }
