@@ -69,12 +69,12 @@ async def decode_base64_to_encrypted_file(b64, filename):
 async def run_ffmpeg(input_path, output_path):
     def ffmpeg_sync():
         try:
-            ffmpeg.input(input_path).output(output_path).run(overwrite_output=True)
+            ffmpeg.input(input_path).output(output_path).run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
         except ffmpeg.Error as e:
             print("FFmpeg failed:")
-            print("stdout:", e.stdout.decode('utf-8') if e.stdout else "")
-            print("stderr:", e.stderr.decode('utf-8') if e.stderr else "")
-            raise
+            print("stdout:", e.stdout.decode("utf-8", errors="ignore") if e.stdout else "<no stdout>")
+            print("stderr:", e.stderr.decode("utf-8", errors="ignore") if e.stderr else "<no stderr>")
+            raise RuntimeError("FFmpeg conversion failed, check logs for details.") from e
     await asyncio.to_thread(ffmpeg_sync)
 
 async def cleanup_files(files):
