@@ -32,7 +32,6 @@ if not ENCRYPTION_KEY:
 fernet = Fernet(ENCRYPTION_KEY.encode())
 
 async def clear_global_save_path():
-
     try:
         for filename in os.listdir(globalSavePath):
             file_path = os.path.join(globalSavePath, filename)
@@ -40,7 +39,6 @@ async def clear_global_save_path():
                 try:
                     await aiofiles.os.remove(file_path)
                 except AttributeError:
-
                     await asyncio.to_thread(os.remove, file_path)
             elif os.path.isdir(file_path):
                 await asyncio.to_thread(shutil.rmtree, file_path)
@@ -69,9 +67,14 @@ async def decode_base64_to_encrypted_file(b64, filename):
     await write_encrypted_file(filename, raw_data)
 
 async def run_ffmpeg(input_path, output_path):
-
     def ffmpeg_sync():
-        ffmpeg.input(input_path).output(output_path).run(overwrite_output=True, quiet=True)
+        try:
+            ffmpeg.input(input_path).output(output_path).run(overwrite_output=True)
+        except ffmpeg.Error as e:
+            print("FFmpeg failed:")
+            print("stdout:", e.stdout.decode('utf-8') if e.stdout else "")
+            print("stderr:", e.stderr.decode('utf-8') if e.stderr else "")
+            raise
     await asyncio.to_thread(ffmpeg_sync)
 
 async def cleanup_files(files):
@@ -107,7 +110,10 @@ async def convert_video():
         async with aiofiles.open(input_dec_file, "wb") as f:
             await f.write(raw_input)
 
-        await run_ffmpeg(input_dec_file, output_dec_file)
+        try:
+            await run_ffmpeg(input_dec_file, output_dec_file)
+        except ffmpeg.Error:
+            return jsonify(error="FFmpeg conversion failed, check logs for details."), 500
 
         async with aiofiles.open(output_dec_file, "rb") as f:
             raw_output = await f.read()
@@ -150,14 +156,12 @@ async def convert_document():
             await f.write(raw_input)
 
         if from_fmt.lower() == "pdf" and to_fmt.lower() == "docx":
-
             def convert_pdf_to_docx():
                 converter = Converter(input_dec_file)
                 converter.convert(output_dec_file, start=0, end=None)
                 converter.close()
             await asyncio.to_thread(convert_pdf_to_docx)
         else:
-
             await asyncio.to_thread(pypandoc.convert_file, input_dec_file, to_fmt, outputfile=output_dec_file)
 
         async with aiofiles.open(output_dec_file, "rb") as f:
@@ -245,7 +249,10 @@ async def convert_audio():
         async with aiofiles.open(input_dec_file, "wb") as f:
             await f.write(raw_input)
 
-        await run_ffmpeg(input_dec_file, output_dec_file)
+        try:
+            await run_ffmpeg(input_dec_file, output_dec_file)
+        except ffmpeg.Error:
+            return jsonify(error="FFmpeg conversion failed, check logs for details."), 500
 
         async with aiofiles.open(output_dec_file, "rb") as f:
             raw_output = await f.read()
@@ -266,9 +273,4 @@ async def convert_audio():
         return jsonify(error=f"Audio conversion failed: {exception}"), 500
 
 if __name__ == "__main__":
-    import hypercorn.asyncio
-    import hypercorn.config
-
-    config = hypercorn.config.Config()
-    config.bind = ["0.0.0.0:4000"]
-    asyncio.run(hypercorn.asyncio.serve(app, config))
+    app.run(host="0.0.0.0", port=4000)
