@@ -183,12 +183,14 @@ h6:nth-child(1)     { animation-delay: 0.8s; }
 }
 
 .developer-card {
-    padding: 30px 60px;
+    flex: 1 1 300px;
+    max-width: 300px;
+    padding: 30px 20px;
     border-radius: 16px;
-    max-width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
+    text-align: center;
     gap: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
     animation: fadeInUp 0.8s ease forwards;
