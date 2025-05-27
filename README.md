@@ -61,15 +61,15 @@ If you are suspicious, host the [server](https://github.com/Firebladedoge229/Ope
 <div style="padding-left: 20px; line-height: 1;">
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 1em;">&nbsp;▪&nbsp;</span>
-    <a href="https://pgjones.gitlab.io/quart/"><strong>Quart</strong></a> – Async Python web framework
+    <a href="https://pgjones.gitlab.io/quart/"><strong>Quart</strong></a> – Async Python Web Framework
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 1em;">&nbsp;▪&nbsp;</span>
-    <a href="https://pypi.org/project/pypandoc/"><strong>pypandoc</strong></a> – Pandoc wrapper for document conversions
+    <a href="https://pypi.org/project/pypandoc/"><strong>PyPandoc</strong></a> – Pandoc Wrapper for document conversions
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 1em;">&nbsp;▪&nbsp;</span>
-    <a href="https://pypi.org/project/pdf2docx/"><strong>pdf2docx</strong></a> – Convert PDFs to Document files
+    <a href="https://pypi.org/project/pdf2docx/"><strong>PDF2DocX</strong></a> – Convert PDFs to Document files
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 0em;">&nbsp;▪&nbsp;</span>
@@ -77,6 +77,6 @@ If you are suspicious, host the [server](https://github.com/Firebladedoge229/Ope
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 1em;">&nbsp;▪&nbsp;</span>
-    <a href="https://pypi.org/project/ffmpeg-python/"><strong>ffmpeg-python</strong></a> – Python bindings for FFmpeg command line
+    <a href="https://pypi.org/project/ffmpeg-python/"><strong>FFmpeg</strong></a> – Python Bindings for FFmpeg command line
   </p>
 </div>
