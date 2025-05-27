@@ -51,7 +51,7 @@
 
 Simply navigate to the website located at [fireblade.dev](https://convert.fireblade.dev/).
 
-If you are suspicious, host the [server](https://github.com/Firebladedoge229/OpenConvert/blob/main/server.py) yourself!
+Want full control? Host the OpenConvert [server](https://github.com/Firebladedoge229/OpenConvert/blob/main/server.py) yourself!
 
 ## Development
 
