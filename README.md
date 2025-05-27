@@ -69,7 +69,7 @@ If you are suspicious, host the [server](https://github.com/Firebladedoge229/Ope
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 1em;">&nbsp;▪&nbsp;</span>
-    <a href="https://pypi.org/project/pdf2docx/"><strong>pdf2exe</strong></a> – Convert PDFs to Document files
+    <a href="https://pypi.org/project/pdf2docx/"><strong>pdf2docx</strong></a> – Convert PDFs to Document files
   </p>
   <p style="margin-bottom: 4px; text-indent: -20px;">
     <span style="display: inline-block; width: 0em;">&nbsp;▪&nbsp;</span>
