@@ -24,6 +24,7 @@
   **A:** **Conversion times vary depending on file size and format**, but most files convert within seconds to a few minutes.
 
 **Q: Are my files secure when I upload them?**
+
   **A:** **Absolutely**. OpenConvert prioritizes user privacy by never storing files permanently and ensuring your data is protected at all times. All uploaded files and conversion data are automatically deleted shortly after processing, and any temporary data not in use is securely encrypted to ensure maximum security.
 
 ## Features
