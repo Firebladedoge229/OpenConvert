@@ -27,10 +27,10 @@ furnished to do so, subject to the following conditions:
    Privacy-respecting analytics tools (e.g., Plausible, Umami, or self-hosted systems)  
    that do not collect personally identifiable information (PII) — such as IP addresses,  
    geolocation data, device fingerprints, or behavioral profiles — are permitted only if:  
-   - They are opt-in only and disabled by default, meaning they will not function unless the user explicitly enables them,  
-   - They are used solely for non-commercial and non-promotional purposes, such as  
-     aggregate usage statistics, performance monitoring, or debugging, and  
-   - No collected data is shared with third parties or used for advertising, targeting, or profiling.
+     - They are opt-in only and disabled by default, meaning they will not function unless the user explicitly enables them,  
+     - They are used solely for non-commercial and non-promotional purposes, such as  
+       aggregate usage statistics, performance monitoring, or debugging, and  
+     - No collected data is shared with third parties or used for advertising, targeting, or profiling.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  
