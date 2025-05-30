@@ -256,7 +256,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #222;
+    box-sizing: border-box;
     padding: 15px 25px;
     margin: 20px auto;
     max-width: 600px;
