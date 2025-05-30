@@ -119,9 +119,14 @@ h6:nth-child(1)     { animation-delay: 0.8s; }
 }
 
 .image-container-left {
-    margin-right: 30px;
     animation: popIn 0.8s ease forwards;
     opacity: 0;
+}
+
+@media (min-width: 513px) {
+  .image-container-left {
+    margin-right: 30px;
+  }
 }
 
 .container-logo {
