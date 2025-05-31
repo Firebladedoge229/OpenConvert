@@ -225,7 +225,7 @@ async def convert_image():
                     background = Image.new("RGB", img.size, (255, 255, 255))
                     background.paste(img, mask=img.split()[-1])
                     background.save(output_dec_file, to_ext.upper())
-                elif ext == "xbm":
+                elif to_ext == "xbm":
                     bw_img = img.convert("1")
                     bw_img.save(output_dec_file, "XBM")
                 else:
