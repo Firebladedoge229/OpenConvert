@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const base64Data = await readFileAsBase64(file);
       const fromFormat = getFileExtension(file.name);
-      const toFormat = selectedFormat;
+      const toFormat = (selectedFormat.toUpperCase() === "JPEG2000") ? "jpx" : selectedFormat;
 
       const jsonPayload = {
         from: fromFormat.toUpperCase(),
