@@ -136,7 +136,7 @@ async def convert_video():
         file_bytes = io.BytesIO(raw_output)
         file_bytes.seek(0)
 
-        response = await send_file(file_bytes, as_attachment=True, download_name=f"converted.{to_fmt}")
+        response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
@@ -185,7 +185,7 @@ async def convert_document():
         file_bytes = io.BytesIO(raw_output)
         file_bytes.seek(0)
 
-        response = await send_file(file_bytes, as_attachment=True, download_name=f"converted.{to_fmt}")
+        response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
@@ -235,7 +235,7 @@ async def convert_image():
         file_bytes = io.BytesIO(raw_output)
         file_bytes.seek(0)
 
-        response = await send_file(file_bytes, as_attachment=True, download_name=f"converted.{to_ext}")
+        response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_ext}")
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
@@ -280,7 +280,7 @@ async def convert_audio():
         file_bytes = io.BytesIO(raw_output)
         file_bytes.seek(0)
 
-        response = await send_file(file_bytes, as_attachment=True, download_name=f"converted.{to_fmt}")
+        response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
