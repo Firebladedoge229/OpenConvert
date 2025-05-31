@@ -317,6 +317,7 @@ h1 {
     padding: 6px 10px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .light-theme .setting-item input,
