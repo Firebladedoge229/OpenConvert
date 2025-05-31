@@ -1,4 +1,8 @@
-![OpenConvert](https://github.com/Firebladedoge229/OpenConvert/blob/main/images/OpenConvert.png?raw=true)
+<picture>
+  <source srcset="https://github.com/Firebladedoge229/OpenConvert/blob/main/images/OpenConvertDark.png?raw=true" media="(prefers-color-scheme: dark)">
+  <source srcset="https://github.com/Firebladedoge229/OpenConvert/blob/main/images/OpenConvertLight.png?raw=true" media="(prefers-color-scheme: light)">
+  <img src="https://github.com/Firebladedoge229/OpenConvert/blob/main/images/OpenConvertLight.png?raw=true" alt="OpenConvert"/>
+</picture>
 
 # OpenConvert
 
