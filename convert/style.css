@@ -1,3 +1,99 @@
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeui.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeuib.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeuii.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeuiz.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/segoeuil.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguili.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguisl.woff2") format("woff2");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguisli.woff2") format("woff2");
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguisb.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguisbi.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguibl.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../fonts/seguibli.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 * {
     box-sizing: border-box;
 }
