@@ -171,6 +171,7 @@ body.dark-theme {
 .upload-button,
 .toolbar-button {
     color: #FFFFFF;
+    font-family: inherit;
     background: linear-gradient(-45deg, #07ABE1, #37DF88, #37DF88, #07ABE1);
     background-size: 400% 400%;
     background-position: 0% 50%;
