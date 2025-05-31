@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
       height: "100%",
       backgroundColor: "rgba(0, 0, 0, 0.5)",  
       zIndex: "20",
-      borderRadius: "8px",
+      borderRadius: "4px",
     });
 
     if (getComputedStyle(cardElement).position === "static") {

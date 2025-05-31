@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 a, p, h1, h2, h3, h4, h5, h6 {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     animation: fadeInUp 0.8s ease forwards;
@@ -22,7 +30,6 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 body {
     margin: 0;
-    padding: 0 20px 60px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     animation: fadeIn 1s ease forwards;
     opacity: 0;
@@ -110,16 +117,20 @@ body.dark-theme {
     padding-bottom: 150px;
 }
 
+.site-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     padding: 10px 20px;
     text-align: center;
     z-index: 1000;
     animation: fadeInUp 1s ease forwards;
     opacity: 0;
+    margin-top: auto;
 }
 
 .light-theme .footer {
@@ -192,9 +203,14 @@ body.dark-theme {
     background: inherit;
 }
 
+.light-theme .toolbar select {
+    background: #FFFFFF;
+}
+
 .light-theme .toolbar select,
 .light-theme .toolbar p {
     color: #000000;
+    border-color: #BBBBBB;
 }
 
 .dark-theme .toolbar select,

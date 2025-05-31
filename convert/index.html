@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>OpenConvert</title>
@@ -16,9 +16,10 @@
     <meta name="author" content="OpenConvert Team">
     <meta name="theme-color" content="#ffffff">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <link rel="prefetch" href="/home" as="document">
-    <link rel="prefetch" href="/settings" as="document">
-    <link rel="prefetch" href="/about" as="document">
+    <link rel="prefetch" href="../" as="document">
+    <link rel="prefetch" href="../settings" as="document">
+    <link rel="prefetch" href="../about" as="document">
+    <link rel="prefetch" href="./images/convert.png" as="image">
 </head>
 <body>
     <div class="top-navigation">
@@ -28,41 +29,45 @@
         <a href="/about">About</a>
     </div>
 
-    <div class="toolbar">
-        <a class="convert-all">Convert All</a>
-        <a class="download-zip">Download ZIP</a>
-        <a src="./images/clear.svg" class="clear">🗑️</a>
-        <p class="set-all-format-text">Set all to</p>
-        <select class="set-all-format">
-            <option value="png">PNG</option>
-            <option value="pdf">PDF</option>
-            <option value="mp3">MP3</option>
-            <option value="mp4">MP4</option>
-        </select>
-    </div>
-
-    <input id="fileInput" type="file" multiple="" style="display: none;" accept=".png,.jpeg,.jpg,.webp,.gif,.heic,.ico,.bmp,.cur,.ani,.icns,.nef,.cr2,.hdr,.jpe,.dng,.mat,.pbm,.pfm,.pgm,.pnm,.ppm,.tif,.tiff,.jfif,.avif,.mp3,.wav,.flac,.ogg,.aac,.m4a,.wma,.amr,.ac3,.alac,.aiff,.mkv,.mp4,.webm,.avi,.wmv,.mov,.gif,.mts,.ts,.m2ts,.docx,.xml,.doc,.md,.html,.rtf,.csv,.tsv,.json,.rst,.epub,.odt,.docbook">
-
-    <button id="uploadButton" class="upload-button" type="button">
-        <div>
-            <div>
-                <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-upload w-full h-full text-on-accent">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="17 8 12 3 7 8"></polyline>
-                    <line x1="12" x2="12" y1="3" y2="15"></line>
-                </svg>
+    <div class="site-container">
+        <div class="main-content">
+            <div class="toolbar">
+                <a class="convert-all">Convert All</a>
+                <a class="download-zip">Download ZIP</a>
+                <a src="./images/clear.svg" class="clear">🗑️</a>
+                <p class="set-all-format-text">Set all to</p>
+                <select class="set-all-format">
+                    <option value="png">PNG</option>
+                    <option value="pdf">PDF</option>
+                    <option value="mp3">MP3</option>
+                    <option value="mp4">MP4</option>
+                </select>
             </div>
-            <h2 class="convert-text">Drop or click to convert</h2>
+
+            <input id="fileInput" type="file" multiple style="display: none;" accept=".png,.jpeg,.jpg,.webp,.gif,.heic,.ico,.bmp,.cur,.ani,.icns,.nef,.cr2,.hdr,.jpe,.dng,.mat,.pbm,.pfm,.pgm,.pnm,.ppm,.tif,.tiff,.jfif,.avif,.mp3,.wav,.flac,.ogg,.aac,.m4a,.wma,.amr,.ac3,.alac,.aiff,.mkv,.mp4,.webm,.avi,.wmv,.mov,.gif,.mts,.ts,.m2ts,.docx,.xml,.doc,.md,.html,.rtf,.csv,.tsv,.json,.rst,.epub,.odt,.docbook">
+
+            <button id="uploadButton" class="upload-button" type="button">
+                <div>
+                    <div>
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+                             stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" x2="12" y1="3" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h2 class="convert-text">Drop or click to convert</h2>
+                </div>
+            </button>
+
+            <div class="file-preview-container"></div>
         </div>
-    </button>
 
-    <div class="file-preview-container"></div>
-
-    <div class="break"></div>
-
-    <div class="footer">
-        <p>&copy; 2025 OpenConvert. All rights reserved.</p>
-        <p>Made with ❤️ by the <a href="../about/" style="text-decoration: none;">OpenConvert Team</a></p>
+        <div class="footer">
+            <p>&copy; 2025 OpenConvert. All rights reserved.</p>
+            <p>Made with ❤️ by the <a href="../about/" style="text-decoration: none;">OpenConvert Team</a></p>
+        </div>
     </div>
 
     <script>
