@@ -213,40 +213,44 @@ async def convert_image():
         from_ext = from_ext.lower()
         to_ext = to_ext.lower()
 
+        raw_input = base64.b64decode(b64data)
+
         input_enc_file = make_temp_filename(from_ext)
-        output_enc_file = make_temp_filename(to_ext)
-        input_dec_file = make_temp_filename(from_ext)
-        output_dec_file = make_temp_filename(to_ext)
+        await write_encrypted_file(input_enc_file, raw_input)
 
-        await decode_base64_to_encrypted_file(b64data, input_enc_file)
+        decrypted_input = await read_encrypted_file(input_enc_file)
+        input_buffer = io.BytesIO(decrypted_input)
 
-        raw_input = await read_encrypted_file(input_enc_file)
-        async with aiofiles.open(input_dec_file, "wb") as f:
-            await f.write(raw_input)
+        output_buffer = io.BytesIO()
 
         def pil_convert():
-            with Image.open(input_dec_file) as img:
+            with Image.open(input_buffer) as img:
                 if to_ext in ["jpeg", "jpg", "eps", "pcx"] and img.mode in ("RGBA", "LA"):
                     background = Image.new("RGB", img.size, (255, 255, 255))
                     background.paste(img, mask=img.split()[-1])
-                    background.save(output_dec_file, to_ext.upper())
+                    background.save(output_buffer, to_ext.upper())
                 elif to_ext == "xbm":
                     bw_img = img.convert("1")
-                    bw_img.save(output_dec_file, "XBM")
+                    bw_img.save(output_buffer, "XBM")
                 else:
-                    img.save(output_dec_file, to_ext.upper())
+                    img.save(output_buffer, to_ext.upper())
+            output_buffer.seek(0)
+
         await asyncio.to_thread(pil_convert)
 
-        async with aiofiles.open(output_dec_file, "rb") as f:
-            raw_output = await f.read()
-        await write_encrypted_file(output_enc_file, raw_output)
+        output_enc_file = make_temp_filename(to_ext)
+        await write_encrypted_file(output_enc_file, output_buffer.getvalue())
 
-        file_bytes = io.BytesIO(raw_output)
-        file_bytes.seek(0)
+        response_buffer = io.BytesIO(output_buffer.getvalue())
+        response_buffer.seek(0)
 
-        response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_ext}")
-        register_cleanup([input_enc_file, input_dec_file, output_enc_file, output_dec_file])
-        return response
+        register_cleanup([input_enc_file, output_enc_file])
+
+        return await send_file(
+            response_buffer,
+            as_attachment=True,
+            attachment_filename=f"converted.{to_ext}"
+        )
 
     except Exception as exception:
         traceback.print_exc()
