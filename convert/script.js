@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewContainer = document.querySelector(".file-preview-container");
 
   const IMAGE_FORMATS = [
-    "png", "jpeg", "jpg", "webp", "gif", "bmp", "tiff", "tif", "ico", "icns",
-    "dds", "eps", "pcx", "ppm", "sgi", "tga", "xbm", "j2k", "j2p", "jpx", "apng"
+    "png", "jpeg", "webp", "gif", "bmp", "tiff", "ico", "icns",
+    "dds", "eps", "pcx", "ppm", "sgi", "tga", "xbm", "JPEG2000"
   ];
 
   const VIDEO_FORMATS = [
