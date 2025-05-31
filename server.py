@@ -221,7 +221,7 @@ async def convert_image():
 
         def pil_convert():
             with Image.open(input_dec_file) as img:
-                if to_ext in ["jpeg", "jpg", "eps", "pcx", ] and img.mode in ("RGBA", "LA"):
+                if to_ext in ["jpeg", "jpg", "eps", "pcx"] and img.mode in ("RGBA", "LA"):
                     background = Image.new("RGB", img.size, (255, 255, 255))
                     background.paste(img, mask=img.split()[-1])
                     background.save(output_dec_file, to_ext.upper())
