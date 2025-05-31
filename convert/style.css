@@ -202,6 +202,7 @@ body.dark-theme {
     border-radius: 4px;
     padding: 6px 10px;
     background: inherit;
+    font-family: inherit;
 }
 
 .light-theme .toolbar select {
