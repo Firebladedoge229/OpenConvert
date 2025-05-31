@@ -94,10 +94,11 @@ async def cleanup_files(files):
         except Exception as exception:
             print(f"Cleanup error: {exception}")
 
-def register_cleanup(response, files):
-    @response.call_on_close
-    def on_close():
-        asyncio.create_task(cleanup_files(files))
+def register_cleanup(files, delay=10):
+    async def delayed_cleanup():
+        await asyncio.sleep(delay)
+        await cleanup_files(files)
+    asyncio.create_task(delayed_cleanup())
 
 @app.route("/convert/video", methods=["POST"])
 async def convert_video():
@@ -137,7 +138,7 @@ async def convert_video():
         file_bytes.seek(0)
 
         response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
-        register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
+        register_cleanup([input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
     except Exception as exception:
@@ -186,7 +187,7 @@ async def convert_document():
         file_bytes.seek(0)
 
         response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
-        register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
+        register_cleanup([input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
     except Exception as exception:
@@ -236,7 +237,7 @@ async def convert_image():
         file_bytes.seek(0)
 
         response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_ext}")
-        register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
+        register_cleanup([input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
     except Exception as exception:
@@ -281,7 +282,7 @@ async def convert_audio():
         file_bytes.seek(0)
 
         response = await send_file(file_bytes, as_attachment=True, attachment_filename=f"converted.{to_fmt}")
-        register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
+        register_cleanup([input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
     except Exception as exception:
