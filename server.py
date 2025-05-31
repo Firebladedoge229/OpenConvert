@@ -100,6 +100,11 @@ def register_cleanup(files, delay=10):
         await cleanup_files(files)
     asyncio.create_task(delayed_cleanup())
 
+@app.route("/health", methods=["GET"])
+@app.route("/status", methods=["GET"])
+async def health_check():
+    return jsonify(status="ok", message="Service is running"), 200
+
 @app.route("/convert/video", methods=["POST"])
 async def convert_video():
     try:
