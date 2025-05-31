@@ -48,8 +48,8 @@ async def clear_global_save_path():
                     await asyncio.to_thread(os.remove, file_path)
             elif os.path.isdir(file_path):
                 await asyncio.to_thread(shutil.rmtree, file_path)
-    except Exception as e:
-        print(f"Failed to clear {globalSavePath}: {e}")
+    except Exception as exception:
+        print(f"Failed to clear {globalSavePath}: {exception}")
 
 @app.before_serving
 async def startup_cleanup():
@@ -91,8 +91,8 @@ async def cleanup_files(files):
                     await aiofiles.os.remove(f)
                 except AttributeError:
                     await asyncio.to_thread(os.remove, f)
-        except Exception as e:
-            print(f"Cleanup error: {e}")
+        except Exception as exception:
+            print(f"Cleanup error: {exception}")
 
 def register_cleanup(response, files):
     @response.call_on_close
@@ -140,9 +140,9 @@ async def convert_video():
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
-    except Exception as e:
+    except Exception as exception:
         traceback.print_exc()
-        return jsonify(error=f"Video conversion failed: {e}"), 500
+        return jsonify(error=f"Video conversion failed: {exception}"), 500
 
 @app.route("/convert/document", methods=["POST"])
 async def convert_document():
@@ -189,9 +189,9 @@ async def convert_document():
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
-    except Exception as e:
+    except Exception as exception:
         traceback.print_exc()
-        return jsonify(error=f"Document conversion failed: {e}"), 500
+        return jsonify(error=f"Document conversion failed: {exception}"), 500
 
 @app.route("/convert/image", methods=["POST"])
 async def convert_image():
@@ -239,9 +239,9 @@ async def convert_image():
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
-    except Exception as e:
+    except Exception as exception:
         traceback.print_exc()
-        return jsonify(error=f"Image conversion failed: {e}"), 500
+        return jsonify(error=f"Image conversion failed: {exception}"), 500
 
 @app.route("/convert/audio", methods=["POST"])
 async def convert_audio():
@@ -284,9 +284,9 @@ async def convert_audio():
         register_cleanup(response, [input_enc_file, input_dec_file, output_enc_file, output_dec_file])
         return response
 
-    except Exception as e:
+    except Exception as exception:
         traceback.print_exc()
-        return jsonify(error=f"Audio conversion failed: {e}"), 500
+        return jsonify(error=f"Audio conversion failed: {exception}"), 500
 
 if __name__ == "__main__":
     import hypercorn.asyncio
