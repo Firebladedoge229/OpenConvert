@@ -249,6 +249,8 @@ body.dark-theme {
     padding: 10px 20px;
     border-radius: 10px;
     animation: fadeInUp 0.9s ease forwards;
+    margin-left: 1em;
+    margin-right: 1em;
     opacity: 0;
 }
 
