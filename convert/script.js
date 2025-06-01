@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
         video.load();
     
         video.onloadeddata = () => {
-          video.currentTime = video.duration / 2;
+          video.currentTime = 0;
         };
     
         video.onseeked = () => {
