@@ -221,10 +221,44 @@ document.addEventListener("DOMContentLoaded", () => {
     card.appendChild(topRight);
 
     let preview;
+    
     if (file.type.startsWith("image/")) {
       preview = document.createElement("img");
       const reader = new FileReader();
       reader.onload = () => preview.src = reader.result;
+      reader.readAsDataURL(file);
+    } else if (file.type.startsWith("video/")) {
+      preview = document.createElement("img");
+      const video = document.createElement("video");
+      video.preload = "auto";
+    
+      const reader = new FileReader();
+      reader.onload = () => {
+        video.src = reader.result;
+        video.load();
+    
+        video.onloadeddata = () => {
+          video.currentTime = video.duration / 2;
+        };
+    
+        video.onseeked = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          preview.src = canvas.toDataURL("image/jpeg");
+        };
+    
+        video.onerror = (e) => {
+          console.error("Video error:", e);
+        };
+      };
+    
+      reader.onerror = (e) => {
+        console.error("FileReader error:", e);
+      };
+    
       reader.readAsDataURL(file);
     } else {
       preview = document.createElement("div");
