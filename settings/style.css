@@ -378,6 +378,10 @@ h1 {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.settings-container {
+    padding: 0 15px
+}
+
 .light-theme .setting-item {
     background-color: #DDD;
     color: #000000;
