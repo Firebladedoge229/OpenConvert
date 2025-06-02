@@ -292,6 +292,12 @@ h6:nth-child(1)     { animation-delay: 0.8s; }
     min-width: 620px;
 }
 
+@media (max-width: 675px) {
+  .developer-list {
+    min-width: 0px;
+  }
+}
+
 .developer-card {
     flex: 1 1 300px;
     max-width: 300px;
