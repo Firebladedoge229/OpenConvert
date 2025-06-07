@@ -262,9 +262,6 @@ body.dark-theme {
 }
 
 @media (max-width: 675px) {
-  .developer-list {
-    min-width: 0px;
-  }
   .text-container-right h1, .text-container-right p {
     margin: 0 20px;
     text-align: center;
