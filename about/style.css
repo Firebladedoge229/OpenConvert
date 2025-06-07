@@ -296,6 +296,10 @@ h6:nth-child(1)     { animation-delay: 0.8s; }
   .developer-list {
     min-width: 0px;
   }
+  .text-container-right h1, .text-container-right p {
+    margin: 0 20px;
+    text-align: center;
+  }
 }
 
 .developer-card {
