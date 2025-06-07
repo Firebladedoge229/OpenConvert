@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>OpenConvert</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video.">
-    <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter">
-    <meta name="author" content="OpenConvert Team">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="prefetch" href="../convert" as="document">
-    <link rel="prefetch" href="../settings" as="document">
-    <link rel="prefetch" href="../about" as="document">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>OpenConvert</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png"/>
+
+  <link rel="manifest" href="./favicon/site.webmanifest"/>
+  <meta name="theme-color" content="#ffffff" id="meta-theme-color"/>
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="OpenConvert"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+
+  <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video."/>
+  <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter"/>
+  <meta name="author" content="OpenConvert Team"/>
+
+  <link rel="prefetch" href="../convert" as="document"/>
+  <link rel="prefetch" href="../settings" as="document"/>
+  <link rel="prefetch" href="../about" as="document"/>
 </head>
 <body>
     <div class="site-container">
@@ -84,29 +94,56 @@
     </div>
 
     <script>
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            return parts.length === 2 ? parts.pop().split(';').shift() : null;
+      function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        return parts.length === 2 ? parts.pop().split(";").shift() : null;
+      }
+
+      function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 86400000).toUTCString();
+        document.cookie = name + "=" + value + "; expires=" + expires + "; path=/";
+      }
+
+      if (!getCookie("theme")) {
+        setCookie("theme", "light", 999999);
+      }
+
+      function applySavedTheme() {
+        const savedTheme = getCookie("theme") || "light";
+        const body = document.body;
+        const metaThemeColor = document.getElementById("meta-theme-color");
+        const dropdown = document.getElementById("theme-dropdown");
+    
+        body.classList.remove("light-theme", "dark-theme");
+        body.classList.add(savedTheme + "-theme");
+
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute("content", savedTheme === "dark" ? "#141414" : "#EBEBEB");
         }
 
-        function setCookie(name, value, days) {
-            const expires = new Date(Date.now() + days * 86400000).toUTCString();
-            document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-        }
+        if (dropdown) dropdown.value = savedTheme;
+      }
 
-        if (!getCookie('theme')) {
-            setCookie('theme', "light", 999999); 
-        }
+      applySavedTheme();
 
-        function applySavedTheme() {
-            const savedTheme = getCookie('theme') || 'light'; 
-            document.body.classList.add(`${savedTheme}-theme`);
-            const dropdown = document.getElementById('theme-dropdown');
-            if (dropdown) dropdown.value = savedTheme;
-        }
+      const themeDropdown = document.getElementById("theme-dropdown");
+      if (themeDropdown) {
+        themeDropdown.addEventListener("change", (e) => {
+          const selectedTheme = e.target.value;
+          const body = document.body;
+          const metaThemeColor = document.getElementById("meta-theme-color");
+    
+          body.classList.remove("light-theme", "dark-theme");
+          body.classList.add(selectedTheme + "-theme");
 
-        applySavedTheme();
+          if (metaThemeColor) {
+            metaThemeColor.setAttribute("content", selectedTheme === "dark" ? "#141414" : "#EBEBEB");
+          }    
+
+          setCookie("theme", selectedTheme, 999999);
+        });
+      }
     </script>
 </body>
 </html>
