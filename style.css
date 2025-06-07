@@ -268,6 +268,12 @@ body.dark-theme {
   }
 }
 
+@media (max-width: 1260px) {
+  .formats-grid {
+    margin: 0 20px;
+  }
+}
+
 .button-container {
     margin-top: 20px;
     display: flex;
