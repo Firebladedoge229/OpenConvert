@@ -230,7 +230,9 @@ async def convert_image():
                     background.paste(img, mask=img.split()[-1])
                     background.save(output_buffer, to_ext.upper())
                 elif to_ext == "xbm":
-                    bw_img = img.convert("1")
+                    gray_img = img.convert("L")
+                    inverted_img = ImageOps.invert(gray_img)
+                    bw_img = inverted_img.convert("1")
                     bw_img.save(output_buffer, "XBM")
                 else:
                     img.save(output_buffer, to_ext.upper())
