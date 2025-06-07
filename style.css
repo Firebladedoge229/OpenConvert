@@ -261,6 +261,16 @@ body.dark-theme {
     font-size: 1rem;
 }
 
+@media (max-width: 675px) {
+  .developer-list {
+    min-width: 0px;
+  }
+  .text-container-right h1, .text-container-right p {
+    margin: 0 20px;
+    text-align: center;
+  }
+}
+
 .button-container {
     margin-top: 20px;
     display: flex;
