@@ -8,7 +8,7 @@ import io
 from quart import Quart, request, send_file, jsonify
 from quart_cors import cors
 import pypandoc
-from PIL import Image
+from PIL import Image, ImageOps
 from pdf2docx import Converter
 import ffmpeg
 from cryptography.fernet import Fernet
