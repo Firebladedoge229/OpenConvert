@@ -13,10 +13,11 @@
   <meta name="description" content="OpenConvert is a versatile file conversion tool that supports a wide range of formats including images, documents, audio, and video.">
   <meta name="keywords" content="file conversion, image converter, document converter, audio converter, video converter">
   <meta name="author" content="OpenConvert Team">
-  <meta name="theme-color" content="#ffffff">
   <link rel="prefetch" href="../" as="document">
   <link rel="prefetch" href="../convert" as="document">
   <link rel="prefetch" href="../settings" as="document">
+  <meta name="theme-color" content="#EBEBEB" id="meta-theme-color"/>
+  <script src="./javascript/theme-switcher.js"></script>
 </head>
 <body>
   <div class="site-container">
@@ -113,31 +114,5 @@
       <p>Made with ❤️ by the <a href="../about/" style="text-decoration: none;">OpenConvert Team</a></p>
     </div>
   </div>
-
-  <script>
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      return parts.length === 2 ? parts.pop().split(";").shift() : null;
-    }
-
-    function setCookie(name, value, days) {
-      const expires = new Date(Date.now() + days * 86400000).toUTCString();
-      document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-    }
-
-    if (!getCookie("theme")) {
-      setCookie("theme", "light", 999999); 
-    }
-
-    function applySavedTheme() {
-      const savedTheme = getCookie("theme") || "light"; 
-      document.body.classList.add(`${savedTheme}-theme`);
-      const dropdown = document.getElementById("theme-dropdown");
-      if (dropdown) dropdown.value = savedTheme;
-    }
-
-    applySavedTheme();
-  </script>
 </body>
 </html>
