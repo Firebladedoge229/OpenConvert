@@ -245,7 +245,7 @@ body.dark-theme {
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin: 20px;
     padding: 10px 20px;
     border-radius: 10px;
     animation: fadeInUp 0.9s ease forwards;
